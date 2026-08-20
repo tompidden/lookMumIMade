@@ -1,0 +1,9 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Showcase from "../components/Showcase.astro";
+import { siteConfig } from "../config";
+---
+
+<Layout title={`Showcase - ${siteConfig.name}`}>
+  <Showcase />
+</Layout>
