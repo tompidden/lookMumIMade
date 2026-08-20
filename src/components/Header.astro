@@ -6,9 +6,9 @@ const hasProjects = (await getCollection("projects")).length > 0;
 
 <header
   id="header"
-  class="fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
 >
-  <nav class="px-8 sm:px-12 md:px-24 py-4 flex items-center justify-between">
+  <nav class="desktop-navigation px-8 sm:px-12 md:px-24 py-4 items-center justify-between">
     <a
       href={import.meta.env.BASE_URL}
       aria-label="Home"
@@ -75,6 +75,87 @@ const hasProjects = (await getCollection("projects")).length > 0;
       }
     </ul>
   </nav>
+
+  <nav class="mobile-navigation px-5 py-4 items-center justify-between">
+    <a
+      href={import.meta.env.BASE_URL}
+      aria-label="Home"
+      title="Home"
+      class="text-gray-700 hover:text-black transition-colors"
+    >
+      <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9.5Z"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+        <path d="M9 21v-6h6v6" stroke-width="2" stroke-linejoin="round" />
+      </svg>
+    </a>
+
+    <details class="relative">
+      <summary
+        aria-label="Open navigation"
+        title="Open navigation"
+        class="flex h-10 w-10 cursor-pointer list-none items-center justify-center text-gray-700 hover:text-black [&::-webkit-details-marker]:hidden"
+      >
+        <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </summary>
+
+      <ul class="absolute right-0 top-12 flex flex-col items-center gap-2 border border-gray-200 bg-[#FFF8F5] p-2 shadow-lg">
+        <li>
+          <a
+            href={`${import.meta.env.BASE_URL}about`}
+            aria-label="About"
+            title="About"
+            class="flex h-10 w-10 items-center justify-center text-gray-700 hover:text-black"
+          >
+            <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="8.5" stroke-width="2" />
+              <path d="M12 11v5M12 8h.01" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </a>
+        </li>
+        {
+          hasProjects && (
+            <>
+              <li>
+                <a
+                  href={`${import.meta.env.BASE_URL}#projects`}
+                  aria-label="Projects"
+                  title="Projects"
+                  class="flex h-10 w-10 items-center justify-center text-gray-700 hover:text-black"
+                >
+                  <svg aria-hidden="true" class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <g transform="rotate(-45 12 12)">
+                      <path d="M9 4h6v4H9zM12 8v12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`${import.meta.env.BASE_URL}showcase`}
+                  aria-label="Showcase"
+                  title="Showcase"
+                  class="flex h-10 w-10 items-center justify-center text-gray-700 hover:text-black"
+                >
+                  <svg aria-hidden="true" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect x="3" y="3" width="7" height="7" rx="1" stroke-width="2" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" stroke-width="2" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" stroke-width="2" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" stroke-width="2" />
+                  </svg>
+                </a>
+              </li>
+            </>
+          )
+        }
+      </ul>
+    </details>
+  </nav>
 </header>
 
 <script>
@@ -89,6 +170,34 @@ const hasProjects = (await getCollection("projects")).length > 0;
 </script>
 
 <style>
+  .desktop-navigation {
+    display: flex;
+  }
+
+  .mobile-navigation {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .desktop-navigation {
+      display: flex;
+    }
+
+    .mobile-navigation {
+      display: none;
+    }
+  }
+
+  @media (min-width: 480px) and (max-width: 767px) and (min-aspect-ratio: 3 / 2) {
+    .desktop-navigation {
+      display: none;
+    }
+
+    .mobile-navigation {
+      display: flex;
+    }
+  }
+
   html {
     scroll-behavior: smooth;
   }
