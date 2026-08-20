@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import { siteConfig } from "../config";
 
 const hasProjects = (await getCollection("projects")).length > 0;
 ---
@@ -12,9 +11,24 @@ const hasProjects = (await getCollection("projects")).length > 0;
   <nav class="px-8 sm:px-12 md:px-24 py-4 flex items-center justify-between">
     <a
       href={import.meta.env.BASE_URL}
-      class="text-gray-900 hover:text-black transition-colors font-bold"
+      aria-label="Home"
+      title="Home"
+      class="text-gray-700 hover:text-black transition-colors"
     >
-      {siteConfig.name}
+      <svg
+        aria-hidden="true"
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9.5Z"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+        <path d="M9 21v-6h6v6" stroke-width="2" stroke-linejoin="round" />
+      </svg>
     </a>
     <ul class="flex items-center gap-8">
       <li>

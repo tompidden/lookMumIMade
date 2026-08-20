@@ -18,7 +18,10 @@ const { title = "Projects" } = Astro.props;
     <section id="projects" class="p-8 sm:p-12 md:p-16 lg:p-24">
       <div>
         <div class="flex flex-col items-center text-center mb-12 lg:mb-16">
-          <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold"
+            style={{ color: siteConfig.accentColor }}
+          >
             {title}
           </h2>
         </div>

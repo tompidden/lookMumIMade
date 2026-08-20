@@ -25,7 +25,10 @@ const { Content } = await render(project);
     </a>
 
     <header class="mt-6 mb-10">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+      <h1
+        class="text-3xl sm:text-4xl md:text-5xl font-bold"
+        style={{ color: siteConfig.accentColor }}
+      >
         {project.data.name}
       </h1>
       <p class="mt-4 text-lg sm:text-xl text-gray-600 leading-relaxed">
