@@ -11,7 +11,7 @@ const hasProjects = (await getCollection("projects")).length > 0;
 >
   <nav class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
     <a
-      href="/"
+      href={import.meta.env.BASE_URL}
       class="text-gray-900 hover:text-black transition-colors font-bold"
     >
       {siteConfig.name}
@@ -19,7 +19,7 @@ const hasProjects = (await getCollection("projects")).length > 0;
     <ul class="flex items-center gap-8">
       <li>
         <a
-          href="/about"
+          href={`${import.meta.env.BASE_URL}about`}
           class="text-gray-700 hover:text-black transition-colors font-medium"
         >
           About
@@ -29,7 +29,7 @@ const hasProjects = (await getCollection("projects")).length > 0;
         hasProjects && (
           <li>
             <a
-              href="/#projects"
+              href={`${import.meta.env.BASE_URL}#projects`}
               class="text-gray-700 hover:text-black transition-colors font-medium"
             >
               Projects

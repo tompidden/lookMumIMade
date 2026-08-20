@@ -74,14 +74,14 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
       <div class="hidden md:block flex flex-col md:items-end gap-4">
         <nav class="flex gap-x-8">
           <a
-            href="/about"
+            href={`${import.meta.env.BASE_URL}about`}
             class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
             >About</a
           >
           {
             hasProjects && (
               <a
-                href="/#projects"
+                href={`${import.meta.env.BASE_URL}#projects`}
                 class="text-sm text-gray-600 hover:text-gray-800 transition-colors"
               >
                 Projects
